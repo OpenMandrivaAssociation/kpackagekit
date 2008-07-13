@@ -17,6 +17,15 @@ Requires:	packagekit
 %description
 KDE interface for PackageKit.
 
+
+%files
+%defattr(-,root,root)
+%{_kde_libdir}/kde4/*.so
+%{_kde_services}/*.desktop
+%{_kde_services}/kded/*.desktop
+
+#--------------------------------------------------------------------
+
 %prep
 %setup -q -n KPackageKit/gui
 
@@ -32,9 +41,3 @@ cd -
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%files
-%defattr(-,root,root)
-%{_kde_libdir}/kde4/*.so
-%{_kde_services}/*.desktop
-%{_kde_services}/kded/*.desktop
