@@ -1,4 +1,4 @@
-%define betaver b3
+%define betaver b4
 
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
@@ -10,13 +10,12 @@ Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{vers
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
-BuildRequires:	packagekit-qt-devel
+BuildRequires:	packagekit-qt-devel >= %version
 BuildRequires:	polkit-devel
 Requires:	packagekit
 
 %description
 KDE interface for PackageKit.
-
 
 %files
 %defattr(-,root,root)
