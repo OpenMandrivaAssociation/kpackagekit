@@ -19,9 +19,12 @@ KDE interface for PackageKit.
 
 %files
 %defattr(-,root,root)
+%{_kde_bindir}/*
 %{_kde_libdir}/kde4/*.so
 %{_kde_services}/*.desktop
 %{_kde_services}/kded/*.desktop
+%{_kde_datadir}/applications/kde4/*.desktop
+%{_kde_appsdir}/KPackageKit
 
 #--------------------------------------------------------------------
 
