@@ -1,12 +1,10 @@
-%define betaver b4
-
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
 Version:	0.1
-Release:	%mkrel -c %betaver 1
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
-Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{version}-%{betaver}.tar.bz2
+Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{version}.tar.bz2
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
@@ -29,7 +27,7 @@ KDE interface for PackageKit.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n KPackageKit/gui
+%setup -q -n KPackageKit/KPackageKit
 
 %build
 %cmake_kde4
@@ -37,9 +35,7 @@ KDE interface for PackageKit.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cd build
-%makeinstall_std
-cd -
+%makeinstall_std -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
