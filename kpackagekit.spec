@@ -10,6 +10,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
 BuildRequires:	packagekit-qt-devel >= %version
 BuildRequires:	polkit-devel
+BuildRequires:	desktop-file-utils
 Requires:	packagekit
 
 %description
@@ -36,6 +37,12 @@ KDE interface for PackageKit.
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std -C build
+
+desktop-file-install --vendor='' \
+	--dir %buildroot%_kde_datadir/applications/kde4 \
+	--remove-category='System' \
+	--add-actegory='Settings;PackageManager' \
+	%buildroot%_kde_datadir/applications/kde4/*.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
