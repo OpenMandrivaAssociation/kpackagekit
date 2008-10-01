@@ -24,6 +24,7 @@ KDE interface for PackageKit.
 %{_kde_services}/kded/*.desktop
 %{_kde_datadir}/applications/kde4/*.desktop
 %{_kde_appsdir}/KPackageKit
+%{_kde_appsdir}/kpackagekit
 
 #--------------------------------------------------------------------
 
@@ -41,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 desktop-file-install --vendor='' \
 	--dir %buildroot%_kde_datadir/applications/kde4 \
 	--remove-category='System' \
-	--add-actegory='Settings;PackageManager' \
+	--add-category='Settings;PackageManager' \
 	%buildroot%_kde_datadir/applications/kde4/*.desktop
 
 %clean
