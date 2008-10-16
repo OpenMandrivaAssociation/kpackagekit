@@ -42,6 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 desktop-file-install --vendor='' \
 	--dir %buildroot%_kde_datadir/applications/kde4 \
 	--remove-category='System' \
+	--remove-category='SoftwareManagement' \
 	--add-category='Settings;PackageManager' \
 	%buildroot%_kde_datadir/applications/kde4/*.desktop
 
