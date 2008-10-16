@@ -1,6 +1,6 @@
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
-Version:	0.1
+Version:	0.3.1
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
@@ -29,7 +29,7 @@ KDE interface for PackageKit.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n KPackageKit/KPackageKit
+%setup -q -n KPackageKit
 
 %build
 %cmake_kde4
