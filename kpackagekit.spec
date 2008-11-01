@@ -1,10 +1,14 @@
+%define svnrel 878403
+
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
 Version:	0.3.1
 Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Configuration/Packaging
-Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{version}.tar.bz2
+#Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{version}.tar.bz2
+Source0:	%name-r%{svnrel}.tar.bz2
+Patch0:		kpackagekit-new-qpackagekit.patch
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
@@ -29,7 +33,8 @@ KDE interface for PackageKit.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n KPackageKit
+%setup -q -n %name
+%patch0 -p0 -b .qpackagekit
 
 %build
 %cmake_kde4
