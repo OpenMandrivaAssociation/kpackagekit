@@ -1,9 +1,9 @@
-%define svnrel 887877
+%define svnrel 920670
 
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
 Version:	0.3.1
-Release:	%mkrel 2.%svnrel.2
+Release:	%mkrel 2.%svnrel.1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
 #Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{version}.tar.bz2
@@ -27,8 +27,8 @@ KDE interface for PackageKit.
 %{_kde_services}/*.desktop
 %{_kde_services}/kded/*.desktop
 %{_kde_datadir}/applications/kde4/*.desktop
-%{_kde_appsdir}/KPackageKit
 %{_kde_appsdir}/kpackagekit
+%{_kde_appsdir}/kpackagekit-smart-icon
 
 #--------------------------------------------------------------------
 
