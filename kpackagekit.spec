@@ -3,7 +3,7 @@
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
 Version:	0.4.1.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Configuration/Packaging
 Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{version}.tar.bz2
@@ -11,6 +11,7 @@ Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{vers
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
+BuildRequires:	qt4-qtdbus
 BuildRequires:	packagekit-devel >= 0.4.7
 BuildRequires:	polkit-devel
 BuildRequires:	desktop-file-utils
