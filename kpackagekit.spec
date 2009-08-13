@@ -8,6 +8,7 @@ License:	GPLv2+
 Group:		System/Configuration/Packaging
 Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-kpackagekit-%{version}.tar.bz2
 #Source0:	%name-r%{svnrel}.tar.bz2
+Patch0:		kpackagekit-0.4.2-fix-po-build.patch
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
@@ -20,7 +21,7 @@ Requires:	packagekit >= 0.4.7
 %description
 KDE interface for PackageKit.
 
-%files
+%files -f %name.lang
 %defattr(-,root,root)
 %{_kde_bindir}/*
 %{_kde_libdir}/libkpackagekitlib.so
@@ -36,7 +37,8 @@ KDE interface for PackageKit.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n KPackageKit
+%setup -q -n %name-%version
+%patch0 -p0
 
 %build
 %cmake_kde4
@@ -52,6 +54,8 @@ desktop-file-install --vendor='' \
 	--remove-category='SoftwareManagement' \
 	--add-category='Settings;PackageManager' \
 	%buildroot%_kde_datadir/applications/kde4/*.desktop
+
+%find_lang %name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
