@@ -1,7 +1,7 @@
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
-Version:	0.5.0.3
-Release:	%mkrel 2
+Version:	0.5.1.1
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
 Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-KPackageKit-%{version}.tar.bz2
@@ -48,8 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 desktop-file-install --vendor='' \
 	--dir %buildroot%_kde_datadir/applications/kde4 \
 	--remove-category='System' \
-	--remove-category='SoftwareManagement' \
-	--add-category='Settings;PackageManager' \
+	--add-category='Settings' \
 	%buildroot%_kde_datadir/applications/kde4/*.desktop
 
 %find_lang %name
