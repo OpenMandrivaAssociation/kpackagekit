@@ -29,6 +29,7 @@ KDE interface for PackageKit.
 %{_kde_libdir}/kde4/libexec/kpackagekitsmarticon
 %{_kde_appsdir}/KPackageKitSmartIcon/KPackageKitSmartIcon.notifyrc
 %{_datadir}/dbus-1/services/org.kde.KPackageKitSmartIcon.service
+%{_datadir}/dbus-1/services/org.freedesktop.PackageKit.service
 
 #--------------------------------------------------------------------
 
