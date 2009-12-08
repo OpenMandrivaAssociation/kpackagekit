@@ -10,10 +10,10 @@ URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
 BuildRequires:	qt4-qtdbus
-BuildRequires:	packagekit-devel >= 0.5.3
+BuildRequires:	packagekit-devel >= 0.5.5
 BuildRequires:	polkit-devel
 BuildRequires:	desktop-file-utils
-Requires:	packagekit >= 0.5.3
+Requires:	packagekit >= 0.5.5
 
 %description
 KDE interface for PackageKit.
