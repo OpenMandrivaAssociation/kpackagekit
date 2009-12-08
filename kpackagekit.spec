@@ -5,7 +5,6 @@ Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
 Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-KPackageKit-%{version}.tar.bz2
-Patch0:		kpackagekit-0.4.2-fix-po-build.patch
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
@@ -35,7 +34,6 @@ KDE interface for PackageKit.
 
 %prep
 %setup -q -n KPackageKit-%version
-#patch0 -p0
 
 %build
 %cmake_kde4
