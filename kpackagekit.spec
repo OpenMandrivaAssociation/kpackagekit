@@ -1,10 +1,11 @@
+%define svn 1071623
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
-Version:	0.5.2
-Release:	%mkrel 1
+Version:	0.6.0
+Release:	%mkrel 0.%svn.1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
-Source0: 	http://www.kde-apps.org/CONTENT/content-files/84745-KPackageKit-%{version}.tar.bz2
+Source0: 	http://www.kde-apps.org/CONTENT/content-files/%name-%{version}.%svn.tar.bz2
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
@@ -34,7 +35,7 @@ KDE interface for PackageKit.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n KPackageKit-%version
+%setup -q -n %name
 
 %build
 %cmake_kde4
