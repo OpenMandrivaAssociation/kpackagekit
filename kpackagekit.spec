@@ -1,12 +1,14 @@
 %define svn 1085322
+%define oname KPackageKit
 
 Summary:	KDE interface for PackageKit
 Name:	  	kpackagekit
 Version:	0.6.0
-Release:	%mkrel 0.%svn.1
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
-Source0: 	http://www.kde-apps.org/CONTENT/content-files/%name-%{version}.%svn.tar.bz2
+Source0: 	http://www.kde-apps.org/CONTENT/content-files/%oname-%{version}.tar.bz2
+Patch0:     PackageKit-0.6.2-fix-minimum-QPackageKit.patch
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
@@ -48,12 +50,13 @@ Bus service for packages installation.
 %{_kde_services}/*.desktop
 %{_kde_appsdir}/kpackagekit
 %{_kde_libdir}/libkpackagekitlib.so
-%{_datadir}/dbus-1/services/org.freedesktop.PackageKit.service
+%{_datadir}/dbus-1/services/kde-org.freedesktop.PackageKit.service
 
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %name
+%setup -q -n %oname-%version
+%patch0 -p1
 
 %build
 %cmake_kde4
@@ -70,6 +73,13 @@ desktop-file-install --vendor='' \
 	%buildroot%_kde_datadir/applications/kde4/*.desktop
 
 %find_lang %name
+
+# hack around gnome-packagekit conflict
+mv $RPM_BUILD_ROOT%{_datadir}/dbus-1/services/org.freedesktop.PackageKit.service \
+$RPM_BUILD_ROOT%{_datadir}/dbus-1/services/kde-org.freedesktop.PackageKit.service 
+
+%check
+desktop-file-validate $RPM_BUILD_ROOT%{_kde_datadir}/applications/kde4/kpackagekit.desktop 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
