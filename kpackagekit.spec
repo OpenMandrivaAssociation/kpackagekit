@@ -2,13 +2,13 @@
 %define oname KPackageKit
 
 Summary:	KDE interface for PackageKit
-Name:	  	kpackagekit
+Name:		kpackagekit
 Version:	0.6.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		System/Configuration/Packaging
 Source0: 	http://www.kde-apps.org/CONTENT/content-files/%oname-%{version}.tar.bz2
-Patch0:     PackageKit-0.6.2-fix-minimum-QPackageKit.patch
+Patch0:		PackageKit-0.6.2-fix-minimum-QPackageKit.patch
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
@@ -16,7 +16,7 @@ BuildRequires:	qt4-qtdbus
 BuildRequires:	packagekit-devel >= 0.5.5
 BuildRequires:	polkit-devel
 BuildRequires:	desktop-file-utils
-Requires:	    packagekit >= 0.5.5
+Requires:	packagekit >= 0.5.5
 
 %description
 KDE interface for PackageKit.
@@ -57,6 +57,9 @@ Bus service for packages installation.
 %prep
 %setup -q -n %oname-%version
 %patch0 -p1
+
+# .deb can't be installed in Mandriva
+sed -i 's,application/x-deb;,,' Desktop/kpackagekit.desktop
 
 %build
 %cmake_kde4
