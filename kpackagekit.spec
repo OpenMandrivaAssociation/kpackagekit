@@ -1,13 +1,13 @@
-%define svn 1085322
+%define svn 1169414
 %define oname KPackageKit
 
 Summary:	KDE interface for PackageKit
 Name:		kpackagekit
-Version:	0.6.0
-Release:	%mkrel 3
+Version:	0.6.1
+Release:	%mkrel 0.%svn.1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
-Source0: 	http://www.kde-apps.org/CONTENT/content-files/%oname-%{version}.tar.bz2
+Source0: 	http://www.kde-apps.org/CONTENT/content-files/%name-%{version}.%svn.tar.bz2
 Patch0:		PackageKit-0.6.2-fix-minimum-QPackageKit.patch
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -55,8 +55,7 @@ Bus service for packages installation.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %oname-%version
-%patch0 -p1
+%setup -q -n %name
 
 # .deb can't be installed in Mandriva
 sed -i 's,application/x-deb;,,' Desktop/kpackagekit.desktop
