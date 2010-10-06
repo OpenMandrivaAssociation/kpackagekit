@@ -1,19 +1,17 @@
-%define svn 1169414
 %define oname KPackageKit
 
 Summary:	KDE interface for PackageKit
 Name:		kpackagekit
-Version:	0.6.1
-Release:	%mkrel 0.%svn.1
+Version:	0.6.2
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
-Source0: 	http://www.kde-apps.org/CONTENT/content-files/%name-%{version}.%svn.tar.bz2
-Patch0:		PackageKit-0.6.2-fix-minimum-QPackageKit.patch
+Source0: 	http://opendesktop.org/CONTENT/content-files/84745-%{name}-%{version}.tar.xz
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
 BuildRequires:	qt4-qtdbus
-BuildRequires:	packagekit-devel >= 0.5.5
+BuildRequires:	packagekit-devel >= 0.6.8
 BuildRequires:	polkit-devel
 BuildRequires:	desktop-file-utils
 Requires:	packagekit >= 0.5.5
@@ -55,10 +53,7 @@ Bus service for packages installation.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %name
-
-# .deb can't be installed in Mandriva
-sed -i 's,application/x-deb;,,' Desktop/kpackagekit.desktop
+%setup -q -n %name-%version
 
 %build
 %cmake_kde4
@@ -72,6 +67,7 @@ desktop-file-install --vendor='' \
 	--dir %buildroot%_kde_datadir/applications/kde4 \
 	--remove-category='System' \
 	--add-category='Settings' \
+	--remove-mime-type='application/x-deb' \
 	%buildroot%_kde_datadir/applications/kde4/*.desktop
 
 %find_lang %name
