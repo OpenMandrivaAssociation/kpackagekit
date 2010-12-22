@@ -2,19 +2,19 @@
 
 Summary:	KDE interface for PackageKit
 Name:		kpackagekit
-Version:	0.6.2
+Version:	0.6.3
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
-Source0: 	http://opendesktop.org/CONTENT/content-files/84745-%{name}-%{version}.tar.xz
+Source0: 	http://opendesktop.org/CONTENT/content-files/84745-%{name}-%{version}.tar.bz2
 URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
 BuildRequires:	qt4-qtdbus
-BuildRequires:	packagekit-devel >= 0.6.8
+BuildRequires:	packagekit-devel >= 0.6.11
 BuildRequires:	polkit-devel
 BuildRequires:	desktop-file-utils
-Requires:	packagekit >= 0.5.5
+Requires:	packagekit >= 0.6.11
 
 %description
 KDE interface for PackageKit.
