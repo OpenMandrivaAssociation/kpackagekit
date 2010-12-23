@@ -2,7 +2,7 @@
 
 Summary:	KDE interface for PackageKit
 Name:		kpackagekit
-Version:	0.6.3
+Version:	0.6.3.2
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Configuration/Packaging
