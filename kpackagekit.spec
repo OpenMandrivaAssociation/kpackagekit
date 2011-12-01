@@ -61,7 +61,7 @@ Bus service for packages installation.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std -C build
 
 desktop-file-install --vendor='' \
@@ -74,11 +74,11 @@ desktop-file-install --vendor='' \
 %find_lang %name
 
 # hack around gnome-packagekit conflict
-mv $RPM_BUILD_ROOT%{_datadir}/dbus-1/services/org.freedesktop.PackageKit.service \
-$RPM_BUILD_ROOT%{_datadir}/dbus-1/services/kde-org.freedesktop.PackageKit.service 
+mv %{buildroot}%{_datadir}/dbus-1/services/org.freedesktop.PackageKit.service \
+%{buildroot}%{_datadir}/dbus-1/services/kde-org.freedesktop.PackageKit.service 
 
 %check
-desktop-file-validate $RPM_BUILD_ROOT%{_kde_datadir}/applications/kde4/kpackagekit.desktop 
+desktop-file-validate %{buildroot}%{_kde_datadir}/applications/kde4/kpackagekit.desktop 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
