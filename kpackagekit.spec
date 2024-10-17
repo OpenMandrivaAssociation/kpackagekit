@@ -7,7 +7,7 @@ Release:	6
 License:	GPLv2+
 Group:		System/Configuration/Packaging
 Source0: 	http://opendesktop.org/CONTENT/content-files/84745-%{name}-%{version}.tar.bz2
-URL:		http://www.kde-apps.org/content/show.php/KPackageKit?content=84745
+URL:		https://www.kde-apps.org/content/show.php/KPackageKit?content=84745
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
 BuildRequires:	qt4-qtdbus
